@@ -1,26 +1,46 @@
-var containerEl = document.getElementById("container");
-var startBtn = document.getElementById("btn");
+var startBtn = document.querySelector("#start");
+var quizBox = document.querySelector("#container-quiz");
+var quiz = document.querySelector("#quiz");
+var choices = document.querySelector("#choice");
+var button = document.querySelector("button");
+var list = document.querySelector("#answer-list");
+var randomQuestion;
+var curQuestionIndex = 0;
+var answersChoice = document.querySelector("#choice");
 var questions = [
   {
-    ask: "What does HTML stands for?",
-    1: "Hypertext Markup Language",
-    2: "Hightext Maker Language",
-    3: "Height Trail Manuel Launch",
-    answer: "Hypertext Markup Language",
-  },
-  {
-    ask: "What does CSS stands for?",
-    1: "Catching Style Shadows",
-    2: "Cascading Style Sheets",
-    3: "Crowd Styling Sheets",
-    answer: "Cascading Style Sheets",
+    question: "What is HTML",
+    answer: [
+      { text: "HTML", correct: true },
+      { text: "HTMA", correct: false },
+      { text: "HTMB", correct: false },
+      { text: "HTMC", correct: false },
+    ],
   },
 ];
 
-startBtn.addEventListener("click", function () {
-  var quizs = "";
-  for (let i = 0; i < questions.length; i++) {
-    quizs = questions[i].ask;
-    containerEl.textContent = quizs;
-  }
-});
+startBtn.addEventListener("click", start);
+
+function start() {
+  startBtn.setAttribute("class", "hide");
+  randomQuestions = questions.sort(() => Math.random() - 0.5);
+  quizBox.removeAttribute("class", "hide");
+  nextquiz();
+}
+function displayQuestion(questions) {
+  quiz.textContent = questions.question;
+  questions.answer.forEach(function (answer) {
+    var button = document.createElement("button");
+    button.innerText = answer.text;
+    if (answer.correct) {
+      nextquiz;
+    }
+    button.addEventListener("click", selectAnswer);
+    list.appendChild(button);
+  });
+}
+function nextquiz() {
+  displayQuestion(questions[curQuestionIndex]);
+}
+
+function answer() {}
