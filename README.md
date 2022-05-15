@@ -13,3 +13,6 @@ I was able to work and get the code to start going.
 The problem I am stuck on is getting the old questions to disappear before the next one appears.
 
 I am submitting this for now and will continue to work on it was I go through this bootcamp and learn new concept.
+
+
+![multiplequestions](https://user-images.githubusercontent.com/85922363/168457757-a555fece-9e41-4d5a-a609-5a340fc8a69f.jpg)
